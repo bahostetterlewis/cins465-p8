@@ -20,4 +20,12 @@
 //= require flatuipro
 //= require jquery_ujs
 //= require turbolinks
+//= require submit.js
 //= require_tree .
+
+$(function () {
+    $('#tldr').click(tldrit);
+});
+function tldrit(button) {
+    window.location = '/article/new'
+}

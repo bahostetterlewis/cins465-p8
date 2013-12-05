@@ -8,12 +8,12 @@ module Summerizer
   end
 
   def Summerizer.split_into_paragraphs content
-  return content.split("\n\n")
+    return content.split("\n\n")
   end
 
   def Summerizer.normalized_intersection_score list1, list2
 
-  set1 = Set.new list1.split
+    set1 = Set.new list1.split
     set2 = Set.new list2.split
     intersection = set1 & set2
     if intersection.length == 0
@@ -24,7 +24,7 @@ module Summerizer
   end
 
   def Summerizer.build_sentences_graph content
-  sentences = split_into_sentences content
+    sentences = split_into_sentences content
     weights = Array.new(sentences.length) { Array.new(sentences.length) { 0 } }
     scores = {}
     (0...sentences.length).each { |i|
@@ -45,7 +45,7 @@ module Summerizer
   end
 
   def Summerizer.paragraph_maximizer content, scores
-  paragraphs = split_into_paragraphs content
+    paragraphs = split_into_paragraphs content
     key_sentences = []
     paragraphs.each { |paragraph|
       sentences = split_into_sentences paragraph
@@ -84,7 +84,7 @@ module Summerizer
     text = paras.join("\n\n")
     scores = build_sentences_graph text
     key_sentences = paragraph_maximizer text, scores
-    key_sentences = key_sentences.join("\n")
+    key_sentences = key_sentences.join(".\n")
 
     return key_sentences, text.length
   end

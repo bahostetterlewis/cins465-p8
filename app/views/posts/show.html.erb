@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @post.title %>
+</h1>
+<p>
+  From <%= @post.user.email %>
+</p>
+
+<% @article = Article.find(@post.article_id) %>
+<p><%= @article.summary %></p>
+<p>Original Length:<%= @article.old_length %> | New Length: <%= @article.new_length %>
+  | <%= @article.compression_rate.round(2) %>% Shorter</p>
+<a href="<%= @article.url %>">Original Article</a> | <%= link_to 'Back', posts_path %>
+<% if @post.user == current_user %>
+    | <%= link_to 'Destroy', @post, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>

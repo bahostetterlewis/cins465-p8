@@ -41,6 +41,7 @@ gem 'jquery-ui-rails'
 gem 'designmodo-flatuipro-rails', github: 'reflection/designmodo-flatuipro-rails',
     branch: 'flatuipro-1.2'
 gem 'nokogiri'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

@@ -1,5 +1,12 @@
 TlDr::Application.routes.draw do
-  get 'post/new' => 'post#new'
+  root 'posts#index'
+  resources :posts
+
+  resources :comments
+
+  devise_for :users
+  get 'article/new' => 'article#new'
+  post 'article/create' => 'article#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -19,7 +26,7 @@ TlDr::Application.routes.draw do
   #   resources :products do
   #     member do
   #       get 'short'
-  #       post 'toggle'
+  #       article 'toggle'
   #     end
   #
   #     collection do
@@ -43,9 +50,9 @@ TlDr::Application.routes.draw do
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
+  #     article 'toggle'
   #   end
-  #   resources :post, concerns: :toggleable
+  #   resources :article, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
