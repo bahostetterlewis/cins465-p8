@@ -7,7 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<button id="tldr">To Long Don't Read It!</button>
+<header>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">465Proj.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/article/new">To Long Don't Read It!</a></li>
+        <li><a href="/">Home</a></li>
+        <% if user_signed_in? %>
+            <li><%= link_to "All", posts_path %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %><%= current_user.email %></li>
+        <% else %>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= image_tag "tldr.png" %>
+  </div>
+</div>
 <%= yield %>
 
 </body>

@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>
+<div class="container">
+  <h1 class="center">
   <%= @post.title %>
 </h1>
 <p>
@@ -15,3 +14,4 @@
 <% if @post.user == current_user %>
     | <%= link_to 'Destroy', @post, method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
+</div>

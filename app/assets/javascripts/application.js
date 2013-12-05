@@ -22,8 +22,10 @@
 //= require turbolinks
 //= require submit.js
 //= require_tree .
+//= require flatuipro
+//= require twitter/bootstrap
 
-$(function () {
+$(document).on("ready page:change", function () {
     $('#tldr').click(tldrit);
 });
 function tldrit(button) {

@@ -1,4 +1,4 @@
-$ ->
+$(document).on "ready page:change", ->
   $('#url_form').submit((event) ->
     event.preventDefault()
     $('#shortened').empty()
@@ -7,7 +7,7 @@ $ ->
       $('#shortened').empty()
       data = JSON.parse(data)
       window.article = data
-      $('#shortened').append "<button id=\"post_it\">Post This</button>"
+      $('#shortened').append "<button id=\"post_it\" class=\"btn btn-small btn-inverse\">Post This</button>"
       $('#post_it').click redirect
       $('#shortened').append "<p>#{data.summary}</p>"
       $('#shortened').append "<p>Original Size:#{data.old_length} | New Size:#{data.new_length} | #{data.compression_rate.toFixed(2)}% Shorter</p>"

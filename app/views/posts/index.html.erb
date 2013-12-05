@@ -1,27 +1,12 @@
-<h1>Listing posts</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Article</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-
+<div class="container"></div>
+<table class="table table-hover full_width">
   <tbody>
   <% @posts.each do |post| %>
-      <tr>
+      <tr class="clickable full_width" data-location="<%= url_for post %>">
         <td><%= post.title %></td>
+        <td><%= post.created_at %></td>
         <td><%= post.user.email %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
