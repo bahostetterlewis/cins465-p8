@@ -1,6 +1,9 @@
 require 'open-uri'
 require 'nokogiri'
 
+# Lots of help from http://thetokenizer.com/2013/04/28/build-your-own-summary-tool/ on how
+# to implement a text summorizer
+
 module Summerizer
   def Summerizer.split_into_sentences content
     #content = content.gsub("\n", '.')
