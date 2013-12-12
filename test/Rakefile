@@ -1,0 +1,10 @@
+require 'rake/testtask'
+require 'pp'
+
+
+Rake::TestTask.new do |test|
+    test.libs << "../lib/"
+    test.test_files = FileList['lib/summerizer/summerizer*.rb']
+    test.verbose = true
+    pp test
+end
